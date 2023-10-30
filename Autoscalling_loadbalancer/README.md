@@ -1,59 +1,56 @@
 # Auto Scaling and Load Balancer Guide:
 
-## What is it?
+## ASG: 
 
-Autoscaling is the automated monitoring of applications to automatically elastically adjust capicity to maintain steady, predictable performance, while keep costs as low as possible by only using the resources required.
+I created a blank Autoscaling Group.
 
-As an autoscalling group notices traffic / demand of a resource increases, the number of resources increase to cope with demand.
-As traffic / demand decreases, the number of resources will decrease with it.
+![img.png](image.png)
 
-## Guide:
+## Templates:
 
-1. Navigate to the Auto Scaling page.
-2. Select the Create Auto Scaling group button.
+I gave it a template. This is a snapshot of the way I want my virtual machine to be configured, along with the launch settings I want it to have.
 
-![img.png](images/autoscaling/image-1.png)
+![img.png](image-1.png)
 
-3. Give your ASG an appropriate name.
-4. Select your template.
-   1. This should have been done in a previous step.
+## Scaling Group
 
-![img.png](images/autoscaling/image-2.png)
+Here, I set my minimum, desired, and maximum capacity.
 
-5. Adjust the availability zones as required.
-   1. In this instance, we are using default 1a, 1b, and 1c.
+![img.png](image-2.png)
 
-![img.png](images/autoscaling/image-3.png)
+What does this mean?
 
-6. Configre advanced options.
-   1. Attach a new load balancer.
-   2. Select Application Load Balancer
-   3. Select Internet-Facing
-   4. Create a target group, use following naming convention.
+![img.png](image-3.png)
 
-![img.png](images/autoscaling/image-4.png)
+- One machine minimum.
+- Two machines desired at all times.
+- At a maximum, have three machines.
 
-![img.png](images/autoscaling/image-5.png)
+## Load Balancer
 
-7. Configure group size.
-   1. For this particular example, the desired and minimum capacity are 2, and maximum capacity is 3.
+I set up my internet facing application load balancer. This directs traffic evenly across the web application virtual machines.
 
-![img.png](images/autoscaling/image-6.png)
+![img.png](image-4.png)
 
-8. Scaling policies.
-   1. Set it to Target tracking scaling policy
-   2. Leave the Average CPU utilization
+But what if one of these machines break?
 
-![img.png](images/autoscaling/image-7.png)
+In this case, the Autoscaling Group will spin up a new machine, and the load balancer will direct traffic to this newly spun up machine:
 
-9. Leave notifications.
+![img.png](image-5.png)
 
-10. Add tags.
-    1.  Change key to "Name"
-    2.  Value to "tech254-andrew-app-asg-HA-SC"
+In my case, I have set the "unhealthy" threshold to 50% CPU usage - if CPU usage exceeds that, spin up a new Virtual Machine.
 
-![img.png](images/autoscaling/image-8.png)
+The final benefit comes in the form of elasticity - if I have three machines running, but CPU usage drogs really low, the third virtual machine will be removed, autoscaling down.
 
-11. Launch instances.
+## Final Setup:
 
-12. To access DNS (to see the application) navigate to Load Balancers, select your ID, and select the DNS.
+What did this leave me with:
+
+![img.png](image-6.png)
+
+I now have:
+
+1. Two EC2s automatically launched from templates inside public subnets, spread across different availability zones.
+2. A database EC2 that is connected to the Application EC2s when they start up.
+3. Autoscaling group that will spin up to three application virtual machines when traffic is high, and remove those that aren't required.
+4. Load balancer that directs traffic over these application virtual machines evenly, resulting in better average CPU utilisation.
