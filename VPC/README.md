@@ -10,11 +10,11 @@
 
 ## Required set up.
 
+Walls around my resources. The only thing on display is the Webpage.
+
 ![img.png](other_images/diag_2.png)
 
 # VPC
-
-Navigate to the VPC console, and select create VPC.
 
 What have we done here? We've just set up the foundation for our walls.
 
@@ -35,6 +35,8 @@ I created the doorway into this VPC for the wider internet.
 # Route Table:
 
 I created Public Route Table and associated them to direct this traffic from the Internet Gateway into my public subnets. I allowed traffic to come from everywhere. This is because it'll only be going to my web page.
+
+This leaves a default route table that only connects to the private subnet.
 
 ![img.png](other_images/image-5.png)
 
