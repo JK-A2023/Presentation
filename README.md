@@ -1,6 +1,6 @@
 # Infrastructure:
 
-The purpose of my project was to create a publically accessible webpage. I wanted it to request data, while shielding the database. I wanted protection in the case the webpage virtual machines were to fail or grow unhealthy for any reason. And so I made the autoscaling group would spin up another machine in this case. I've made a load balancer that would then spread the traffic out evenly between the remaining healthy machines, and the newly spun up machine.
+The purpose of my project was to create a publicly accessible webpage. I wanted it to request data, while shielding the database. I wanted protection in the case the webpage virtual machines were to fail or grow unhealthy for any reason. And so I made the autoscaling group would spin up another machine in this case. I've made a load balancer that would then spread the traffic out evenly between the remaining healthy machines, and the newly spun up machine.
 
 ## Setup:
 
