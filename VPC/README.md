@@ -6,11 +6,11 @@
 2. Application virtual machine.
 3. Publically accessible webpage.
 
-![img.png](other_images/image.png)
+![img.png](other_images/diag_1.png)
 
 ## Required set up.
 
-![img.png](other_images/image-1.png)
+![img.png](other_images/diag_2.png)
 
 # VPC
 
