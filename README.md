@@ -1,5 +1,9 @@
 # Infrastructure:
 
+The purpose of my project was to create a publically accessible webpage. I wanted it to request data, while shielding the database. I wanted protection in the case the webpage virtual machines were to fail or grow unhealthy for any reason. And so I made the autoscaling group would spin up another machine in this case. I've made a load balancer that would then spread the traffic out evenly between the remaining healthy machines, and the newly spun up machine.
+
+## Setup:
+
 I have set up the following infrastructure:
 
 1. Virtual Private Cloud:
@@ -12,4 +16,7 @@ I have set up the following infrastructure:
 3. Two web page EC2s in public subnet.
 4. EC2 in private subnet.
 
-The purpose of this infrastructure it to create a publically accessible webpage, while shielding the database. If the webpage virtual machines were to fail or grow unhealthy for any reason, the autoscaling group would spin up another machine. The load balancer would then drive spread the traffic out evenly between the remaining healthy machines, and the newly spun up machine.
+## Blockers:
+
+1. Outdated NodeJS application on Ubuntu 20.04 LTS.
+2. Requiring at least 2 Public Subnets for ASG.
