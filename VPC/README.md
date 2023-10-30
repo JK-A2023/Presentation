@@ -16,13 +16,13 @@ Walls around my resources. The only thing on display is the Webpage.
 
 # VPC
 
-What have we done here? We've just set up the foundation for our walls.
+I have set up the foundation for our walls.
 
 ![img.png](other_images/image-2.png)
 
 # Subnets
 
-Set up my three subnets: 2 public, one private.
+I then set up my three subnets: 2 public, one private.
 
 ![img.png](other_images/image-3.png)
 
