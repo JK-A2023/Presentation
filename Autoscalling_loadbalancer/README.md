@@ -1,4 +1,4 @@
-# Auto Scaling Guide
+# Auto Scaling and Load Balancer Guide:
 
 ## What is it?
 
