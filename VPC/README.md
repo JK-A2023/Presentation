@@ -1,11 +1,18 @@
 # VPC
 
+## Default set up.
+
+1. Sensitive database.
+2. Application virtual machine.
+3. Publically accessible webpage.
+
 ![img.png](other_images/image.png)
+
+## Required set up.
 
 ![img.png](other_images/image-1.png)
 
-
-### Step 1
+# VPC
 
 Navigate to the VPC console, and select create VPC.
 
