@@ -4,23 +4,23 @@
 
 I created a blank Autoscaling Group.
 
-![img.png](image.png)
+![img.png](images/image.png)
 
 ## Templates:
 
 I gave it a template. This is a snapshot of the way I want my virtual machine to be configured, along with the launch settings I want it to have.
 
-![img.png](image-1.png)
+![img.png](images/image-1.png)
 
 ## Scaling Group
 
 Here, I set my minimum, desired, and maximum capacity.
 
-![img.png](image-2.png)
+![img.png](images/image-2.png)
 
 What does this mean?
 
-![img.png](image-3.png)
+![img.png](images/image-3.png)
 
 - One machine minimum.
 - Two machines desired at all times.
@@ -30,13 +30,13 @@ What does this mean?
 
 I set up my internet facing application load balancer. This directs traffic evenly across the web application virtual machines.
 
-![img.png](image-4.png)
+![img.png](images/image-4.png)
 
 But what if one of these machines break?
 
 In this case, the Autoscaling Group will spin up a new machine, and the load balancer will direct traffic to this newly spun up machine:
 
-![img.png](image-5.png)
+![img.png](images/image-5.png)
 
 In my case, I have set the "unhealthy" threshold to 50% CPU usage - if CPU usage exceeds that, spin up a new Virtual Machine.
 
@@ -46,7 +46,7 @@ The final benefit comes in the form of elasticity - if I have three machines run
 
 What did this leave me with:
 
-![img.png](image-6.png)
+![img.png](images/image-6.png)
 
 I now have:
 
