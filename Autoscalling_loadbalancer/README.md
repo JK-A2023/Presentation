@@ -8,7 +8,7 @@ I created a blank Autoscaling Group.
 
 ## Templates:
 
-I gave it a template. This is a snapshot of the way I want my virtual machine to be configured, along with the launch settings I want it to have.
+I gave it a template I had made previously. This is a snapshot of the way I want my virtual machine to be configured, along with the launch settings I want it to have.
 
 ![img.png](images/image-1.png)
 
@@ -36,7 +36,7 @@ But what if one of these machines break?
 
 In this case, the Autoscaling Group will spin up a new machine, and the load balancer will direct traffic to this newly spun up machine:
 
-![img.png](images/image-5.png)
+![img.png](images/other_diag.png)
 
 In my case, I have set the "unhealthy" threshold to 50% CPU usage - if CPU usage exceeds that, spin up a new Virtual Machine.
 
