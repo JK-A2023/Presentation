@@ -19,4 +19,5 @@ I have set up the following infrastructure:
 ## Blockers:
 
 1. Outdated NodeJS application on Ubuntu 20.04 LTS.
-2. Requiring at least 2 Public Subnets for ASG.
+2. Outdated MongoDB repository key on Ubuntu 20.04 LTS.
+3. Requiring at least 2 Public Subnets for ASG.
