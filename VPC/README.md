@@ -22,7 +22,7 @@ I have set up the foundation for our walls.
 
 # Subnets
 
-I then set up my three subnets: 2 public, one private.
+I then set up my four subnets: three public, one private.
 
 ![img.png](other_images/image-3.png)
 
